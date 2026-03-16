@@ -191,13 +191,20 @@ export default function JobMonitoringTable() {
                 <td className="py-4 px-6 text-sm text-[#111111]">{job.client}</td>
                 <td className="py-4 px-6 text-sm text-[#6B7280]">{job.garment}</td>
                 <td className="py-4 px-6">
-                  <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${
-                    job.status === 'Completed' 
-                      ? 'bg-blue-50 text-blue-600' 
+                  <span className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium whitespace-nowrap border ${
+                    job.status === 'Completed'
+                      ? 'bg-emerald-50 text-emerald-600 border-emerald-100'
                       : job.status === 'Processing'
-                      ? 'bg-purple-50 text-purple-600'
-                      : 'bg-red-50 text-red-600'
+                      ? 'bg-blue-50 text-blue-600 border-blue-100'
+                      : 'bg-red-50 text-red-600 border-red-100'
                   }`}>
+                    <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${
+                      job.status === 'Completed'
+                        ? 'bg-emerald-500'
+                        : job.status === 'Processing'
+                        ? 'bg-blue-500 animate-pulse'
+                        : 'bg-red-500'
+                    }`}></span>
                     {job.status}
                   </span>
                 </td>
